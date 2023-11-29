@@ -20,7 +20,19 @@ public class User {
     private String name;
     private String email;
     private Role role;
-    @ManyToMany(fetch=FetchType.LAZY,cascade={CascadeType.PERSIST,CascadeType.DETACH,CascadeType.REFRESH,CascadeType.MERGE})
-    @JoinTable(name="users_teams", joinColumns=@JoinColumn(name="user_id"), inverseJoinColumns=@JoinColumn(name="team_id"))
+    @ManyToMany(
+            fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.DETACH,
+                    CascadeType.REFRESH,
+                    CascadeType.MERGE
+            }
+    )
+    @JoinTable(
+            name = "users_teams",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "team_id")
+    )
     private Set<Team> teams = new HashSet<>();
 }
