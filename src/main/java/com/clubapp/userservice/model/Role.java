@@ -1,5 +1,5 @@
 package com.clubapp.userservice.model;
 
 public enum Role {
-    CAOCH, ADMIN, BOARDMEMBER
+    COACH, ADMIN, BOARD_MEMBER, ACTIVE_MEMBER, INACTIVE_MEMBER, CHILD, PARENT
 }
