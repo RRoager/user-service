@@ -78,6 +78,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>user-service</finalName>
 	</build>
 	<repositories>
 		<repository>
