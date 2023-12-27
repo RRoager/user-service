@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,8 +15,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.SourceType;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import java.time.Instant;
+
 import java.util.Set;
 
 @Entity
@@ -33,9 +34,13 @@ public class User {
     private Instant createdOn;
     @UpdateTimestamp(source = SourceType.DB)
     private Instant lastUpdatedOn;
-    private String name;
+    @NotNull
     private String email;
-    private Role role;
+    private String password;
+    private String firstName;
+    private String lastName;
+    @NotNull
+    private Set<Role> roles;
     @ManyToMany(mappedBy = "users")
     private Set<Team> teams;
 }
